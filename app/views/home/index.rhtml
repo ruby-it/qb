@@ -1,0 +1,50 @@
+<div id="sidebar">
+  <div class="sideitem">
+    <h3> Ruby </h3>
+      <p> un linguaggio di programmazione dinamico, potente eppure semplice,
+          Leggi <%= wiki_link "perché ci piace ruby" %>
+      </p>
+  </div>
+  <hr/>
+  <div class="sideitem">
+    <h3>Noi</h3>
+    <p><%=wiki_link "Il gruppo" %> nasce per</p>
+      <ul>
+        <li> Aiutare la diffusione di ruby in Italia</li>
+        <li> Sostenere i progetti sviluppati in tale linguaggio</li>
+        <li> Riunire gli utenti di lingua italiana</li>
+      </ul>
+    
+  </div>
+  <hr/> 
+  <div class="sideitem">
+    <h3>Partecipa</h3>
+    <p> Fai un giro nel <%= wiki_link("Wiki") %>,
+        iscriviti alla <a class="existingWikiWord" href="http://lists.ruby-it.org/mailman/listinfo/ml">mailing list</a>
+        o vieni a parlare su <%= wiki_link("irc") %>
+    </p>
+  </div>
+  <hr/>
+  <div class="sideitem">
+    <h3>Percorsi nel Wiki</h3>
+    <ul>
+      <% for page in [ "Documentazione", "Links", "Progetti", "Ruby Quiz", "Ruby Haiku", "Cook Book", "Persone"] %>
+        <li> <%= wiki_link page %>  </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<div id="newsbar">
+  <% for page in @pages %>
+    <div class="newsitem">
+      <h3 ><%= wiki_link page.title %> </h3>
+        <%= markup(page.excerpt) %> 
+        <p class="readall">
+          <em><%= link_to "[Continua...]",page_url(:page_title=>page.title)%></em>
+        </p>
+    </div>
+  <% end %>
+</div>
+
+       

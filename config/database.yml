@@ -1,0 +1,20 @@
+development:
+  adapter: mysql
+  database: qb_development
+  host: localhost
+  username: rff
+  password:
+
+test:
+  adapter: mysql
+  database: qb_test
+  host: localhost
+  username: rff
+  password:
+
+production:
+  adapter: mysql
+  database: qb_production
+  host: localhost
+  username: rff
+  password:

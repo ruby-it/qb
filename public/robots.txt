@@ -1,0 +1,3 @@
+# Useless, but it avoid "Error robots.txt not found" in logs
+User-agent: *
+Disallow: 

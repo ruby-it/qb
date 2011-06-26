@@ -1,0 +1,68 @@
+- to do
++ done
+/ sidestepped
+
+(top priority )
+
+ 
+- duplicated entries for authors, check
+- add backlinks
+- need more tests for revision_controller
+- 100% test coverage 
+- add top bar with links to add items, wiki, rss, all pages etc and remove submenu from wiki
+- multilanguage syntax highlight via <pre lang=foo>. Need syntax tokenizers, too. 
+- Revision#excerpt is pretty dummy, try to find something better
+- QbCloth uses ugly hacks, find some better solutions
+- login_controller is a mess. Can we clean it up (we need tests for that!) ?
+- add "wiki reflection" system. I.e. find all foo such that "blog: foo" in specified pages
+- add "new page" insertion form
+- fix css for home (replace -moz-border-radius with images)
+- change question in something meaningful
+- fix dumpall to avoid duplicated info (i.e. current revisions are already in Pages)
+- do we need nlink_to? If not remove completely 
+- cleanup useless CSS stuff 
+- rename css to qb.css 
+- use in-place-editor for wiki (investigate accessibility and interaction with login) 
+- remove useless helpers
+- add ping to google sitemap
+- add ping to technorati
+- add pings to whatever, is just a for loop :) 
+- write reimport system for yaml metadata from dumpall
+
+(least priority )
+
+SIDESTEPPED
+/ add tags (and put them as meta keywords )
+/ can delete home controller completely, massive conceptual simplification?
+/ check query to dbms (use piggyback)
+/ handle big images in the home (now they mess up the layout on low resolution
+
+
+DONE
+
++ add yaml dump of the wiki last data (probs in reimporting)
++ use a partial view for latest news (i.e "read more")
++ add syntax highlight
++ need tests for login controller
++ need tests for home_controller
++ need MORE tests for version controller, and to find a workaround for cookies
+
++ add caching for rendered pages.. 
++ need tests for model, maybe
++ find and delete all FIXMEs
++ fix home/index.rhtml (remove inner div newscontent)
++ fix css view for wiki/show page (make em more central)
++ fix css view for wiki/edit page (make em stay in line)
++ add search box top-right
++ add feed/validate love-ruby buttons  on the main page
++ investigate if we can have nested layouts
++ add authentication (before wiki/:edit :authenticate ) [done, but still should handle cookies]
+
++ fix routes 
++ remove caching for titles.. or not? see I2 rev 2859 commit log)
++ remove AnonymousCoward ? [Ruby Fan]
++ merge modification for version/new.rhtml (onfocus)
++ check merging of helper/application_helper.rb from I2/alexey branch (rev 2858)
+
+
+

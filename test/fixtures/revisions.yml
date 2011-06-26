@@ -1,0 +1,44 @@
+pretty_cats_v1:
+  id: 2
+  page_id: 2
+  body: "My fine cats: [[Meow]], [[Kitty]], [[James]]"
+  created_at: 2005-09-21t15:40
+  author_id: 1
+
+home_page_v1:
+  id: 1
+  page_id: 1
+  body: "Word, word! [[Pretty cats]]"
+  created_at: 2005-09-21t15:40
+  author_id: 1
+
+
+cool_stuff_v1:
+  id: 10
+  page_id: 3
+  body: "[[Pretty cats]] body for fixture"
+  created_at: 2003-09-21t15:40
+  author_id: 1
+
+example_code_v1:
+  id: 100
+  page_id: 4
+  body: |
+    This page contains code:
+    <pre>
+    some code
+    </pre>
+    and then other stuff and the more code
+    <pre><code>
+    more code
+    </code></pre>
+  created_at: 2003-09-21t15:40
+  author_id: 1
+  
+page_with_dots:
+  id: 500
+  page_id: 5
+  body: this should be rendered as text/html
+  created_at: 2006-06-08t10:34
+  author_id: 1
+    

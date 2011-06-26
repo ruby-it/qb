@@ -1,0 +1,9 @@
+xml.instruct!
+xml.urlset(:xmlns=>'http://www.google.com/schemas/sitemap/0.84') {
+  for page in @pages
+    xml.url {
+      xml.loc(page_url(:page_title => page.title) )
+      xml.lastmod(page.updated_at.strftime('%Y-%m-%d'))
+    }
+  end
+}

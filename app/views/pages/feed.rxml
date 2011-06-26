@@ -1,0 +1,23 @@
+xml << %(<?xml version="1.0"?>\n)
+xml.rss("version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/") do
+  xml.channel do
+    xml.title(SITE_NAME)
+    xml.link(home_url)
+    xml.description("Tracking all versions for #{SITE_NAME}")
+    xml.language "it-it"
+    xml.ttl "40"
+
+    Page.latest_news.each do |page|
+      xml.item do
+        xml.title(page.title)
+        xml.description(markup(page.body)) 
+        xml.pubDate(page.created_at.rfc822)
+        xml.guid( page_url(:page_title => page.title) + 
+                  "##{page.current_revision.id}")
+        xml.link( page_url(:page_title => page.title) + 
+                  "##{page.current_revision.id}")
+        xml.tag!("dc:creator", page.author.name)
+      end
+    end
+  end
+end

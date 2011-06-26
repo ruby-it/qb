@@ -1,0 +1,36 @@
+<% @title = "#{@page.title} (diff revisione ##{@revision.number})" %>
+
+
+<div>
+ <em>Note: 
+    <del class="diffdel">Testo rimosso dalla rev <%= @revision.number%></del>&nbsp;  e 
+    <ins class="diffins">Testo aggiunto nella rev<%=@revision.number+1 %></ins>
+</em>
+</div>
+<hr/>
+<div >
+  <%= differences(markup(@revision.body),markup(@next.body)) %>
+</div>
+
+<div class="byline">
+  Created on <%= @revision.created_at.to_s(:long) %>
+  by <%= link_to_author(@revision.author) %>
+</div>
+
+<div class="navigation">
+  <%= link_to "Rollback", 
+              rollback_url(:page_title => @page, :revision_number => @revision.number) 
+  %>
+
+  <% if @revision.newer_revisions? %>
+    <% if @revision.newer_revisions.size > 1 %>
+      | <%= link_to_new_revision(@revision) %>
+    <% else %>
+      | <%= link_to "See current", page_url(:page_title => @page) %>
+    <% end %>
+  <% end %>
+
+  <% if @revision.older_revisions? %>
+    | <%=link_to_old_revision(@revision) %>
+  <% end %>
+</div>

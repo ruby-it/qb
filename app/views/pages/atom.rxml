@@ -1,0 +1,21 @@
+xml.instruct! 
+xml.feed("xml:lang" => "en-US", "xmlns" => 'http://www.w3.org/2005/Atom') do
+  xml.link( 'href="http://example.org/feed.atom"/>',
+              "rel"=>"self",
+              "type"=>"application/atom+xml")
+  xml.title(SITE_NAME)
+  xml.link("href"=>home_url)
+  xml.id("tag:#{@controller.request.host},#{Time.now.year}:DummyAtom")
+  xml.updated(Time.now.xmlschema)
+  Page.latest_news.each do |page|
+    xml.entry do
+      xml.title(page.title)
+      xml.id  ( page_url(:page_title => page.title) + "##{page.current_revision.id}")
+      xml.link( "href"=>page_url(:page_title => page.title) + "##{page.current_revision.id}")    
+      xml.updated(page.created_at.xmlschema)
+      xml.author{xml.name(page.author.name)}
+      xml.summary(page.excerpt)
+      xml.content("type"=>"xhtml"){xml.div(markup(page.body))}
+    end
+  end
+end

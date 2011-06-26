@@ -1,0 +1,28 @@
+== i2: Instiki went slim
+
+i2 is small, tight rewrite of Instiki as a native Rails application that runs of a database instead of Madeleine.
+It's better suited for big, public wikis with lots of pages. But it requires more manual work to set up.
+
+=== Features
+
+* Page caching: Once a page has been viewed, it's cached so only the web server needs to process it
+
+* Multiple books: The same installation can host multiple books (separate wikis with their own namespace)
+
+
+=== Dependencies
+
+* RedCloth: Use 3.0.3 as 3.0.4 is buggy.
+
+
+=== Getting Started
+
+1. Edit database.yml (feel free to use sqlite or pgsql)
+
+2. Create the matching database
+
+3. Run "rake migrate" (will create all the tables)
+
+4. Create your first book through the console:
+
+     Book.create :name => "My Nice Wiki", :url_name => "wiki"

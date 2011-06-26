@@ -1,0 +1,32 @@
+<% @title = @page.title %>
+
+<%= wiki_page_header %>
+<div>
+<%= markup(@page.body) %>
+<!--<hr/>
+  <p class="backlinks">
+    <small>
+      Pagine che linkano questa:
+      < @page.backlinks.map {|p|
+          wiki_link(p.title)
+        }.join(", ")
+      >
+    </small>
+  </p>
+-->
+</div>
+<div class="byline">
+  <%= @page.revisions.size == 1 ? "Created" : "Updated" %>
+  on <%= @page.created_at.to_s(:long) %> 
+  by <%= link_to_author(@page.author) %>
+  
+</div>
+
+<div class="navigation">
+  <%= link_to("Edit", :controller => "revisions", :action => "new") %>
+
+  <% if @page.revisions.length > 1 %>
+    | 
+    <%= link_to_old_revision(@page.current_revision) %>
+  <% end %>
+</div>

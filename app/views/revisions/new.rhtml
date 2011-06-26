@@ -1,0 +1,32 @@
+<% 
+  @title = %{Modifica per "#{@page.title}"}
+%>
+<%= wiki_page_header %>
+
+<div id="markuphelp" >
+  <%= render :partial => "textile_help" %>
+
+  <h3>Wiki words</h3>
+
+  <p style="border-top: 1px dotted #ccc; margin-top: 0px">
+    Le frasi tra doppie parentesi quadre sono wiki word.
+  </p>
+
+  <p>
+    Wiki word: <i>[[C++]], [[strani trucchi magici!]]</i><br/>
+    Non wiki word: <i>HomePage, TreParoleInsieme, [SingoleParentesi], Altro</i>
+  </p>
+</div>
+
+<div id="editbox">
+  <%= form_tag({ :action => "create" }, :id => 'editForm') %>
+    <%= hidden_field :page, :title %>
+
+    <p><%= text_area :revision, :body  %></p>
+
+    <p>
+      <%= submit_tag "Save" %> 
+      or <%= link_to("Cancel", page_url(:page_title => @page)) %>
+    </p>
+</div>
+</form>

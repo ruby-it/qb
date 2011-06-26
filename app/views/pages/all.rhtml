@@ -1,0 +1,9 @@
+<% @title = "Tutte le pagine" %>
+<%=wiki_page_header %>
+<div id="allPages">
+  <ul>
+    <% for page in Page.find_all.sort_by {|p| p.title.upcase} %>
+      <li><%= wiki_link(page.title) %></li>
+    <% end %>
+  </ul>
+</div>

@@ -1,0 +1,20 @@
+<% @title = "Modifiche Recenti" %>
+<%= wiki_page_header %>
+<% if pages = recently_changed_pages() %>
+  <% updated_on = pages.first.updated_at.to_date %>
+  <h3><%= updated_on.strftime('%B %e, %Y') %></h3>
+  <ul>
+  <% for page in pages %>
+    <% if page.updated_at.to_date < updated_on %>
+      <% updated_on = page.updated_at.to_date %>
+      </ul>
+      <h3><%= updated_on.strftime('%B %e, %Y') %></h3>
+      <ul>
+    <% end %>
+    <li>
+      <%= wiki_link(page.title) %>
+      <span class="byline">at <%= page.updated_at.to_s(:short) %></span>
+    </li>
+  <% end %>
+  </ul>
+<% end %>

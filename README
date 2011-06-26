@@ -1,28 +1,5 @@
-== i2: Instiki went slim
+This code has not been touched in 5 years or something. 
+Even 5 years ago I don't remember why it was touched.
+It is kind of self contained, and the schema.rb I regenerated recently, using db/qb.sql as template.
 
-i2 is small, tight rewrite of Instiki as a native Rails application that runs of a database instead of Madeleine.
-It's better suited for big, public wikis with lots of pages. But it requires more manual work to set up.
-
-=== Features
-
-* Page caching: Once a page has been viewed, it's cached so only the web server needs to process it
-
-* Multiple books: The same installation can host multiple books (separate wikis with their own namespace)
-
-
-=== Dependencies
-
-* RedCloth: Use 3.0.3 as 3.0.4 is buggy.
-
-
-=== Getting Started
-
-1. Edit database.yml (feel free to use sqlite or pgsql)
-
-2. Create the matching database
-
-3. Run "rake migrate" (will create all the tables)
-
-4. Create your first book through the console:
-
-     Book.create :name => "My Nice Wiki", :url_name => "wiki"
+AFAICT 4 tests are failing and I have no clue on why, but I am going to blame one of them on ruby 1.8, the other are probably just stuff i never updated after a live hack on code running in production while I was in erasmus sorry :)
